@@ -1,0 +1,91 @@
+#include<math.h>
+#include<stdio.h>
+#include<stdlib.h>
+int main()
+{
+    int i,n,req[50],mov=0,cp;
+    printf("enter the current position\n");
+    scanf("%d",&cp);
+    printf("enter the number of requests\n");
+    scanf("%d",&n);
+    printf("enter the request order\n");
+    for(i=0;i<n;i++)
+    {
+        scanf("%d",&req[i]);
+    }
+    mov=mov+abs(cp-req[0]); // abs is used to calculate the absolute value
+    printf("%d -> %d",cp,req[0]);
+    for(i=1;i<n;i++)
+    {
+        mov=mov+abs(req[i]-req[i-1]);
+        printf(" -> %d",req[i]);
+    }
+    printf("\n");
+    printf("total head movement = %d\n",mov);
+}
+[13:41, 1/27/2023] Jahnavi Satyam ❣️: 37
+[13:42, 1/27/2023] Jahnavi Satyam ❣️: enter the current position
+58
+enter the number of requests
+8
+enter the request order
+98 
+183
+37
+122
+14
+124
+65
+67
+58 -> 98 -> 183 -> 37 -> 122 -> 14 -> 124 -> 65 -> 67
+total head movement = 635
+[13:48, 1/27/2023] Jahnavi Satyam ❣️: #include<stdio.h>
+
+#include<stdlib.h>
+int main()
+{
+int f[50], index[50],i, n, st, len, j, c, k, ind,count=0;
+
+for(i=0;i<50;i++)
+f[i]=0;
+x:printf("Enter the index block: ");
+scanf("%d",&ind);
+if(f[ind]!=1)
+{
+printf("Enter no of blocks needed and no of files for the index %d on the disk : \n", ind);
+scanf("%d",&n);
+}
+else
+{
+printf("%d index is already allocated \n",ind);
+goto x;
+}
+y: count=0;
+for(i=0;i<n;i++)
+{
+scanf("%d", &index[i]);
+if(f[index[i]]==0)
+count++;
+}
+if(count==n)
+{
+for(j=0;j<n;j++)
+f[index[j]]=1;
+printf("Allocated\n");
+printf("File Indexed\n");
+for(k=0;k<n;k++)
+printf("%d-------->%d : %d\n",ind,index[k],f[index[k]]);
+}
+else
+{
+printf("File in the index is already allocated \n");
+printf("Enter another file indexed");
+goto y;
+}
+printf("Do you want to enter more file(Yes - 1/No - 0)");
+scanf("%d", &c);
+if(c==1)
+goto x;
+else
+exit(0);
+}
