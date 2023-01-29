@@ -17,3 +17,11 @@ printf("I am parent having id %d\n"getpid());
 }
 printf("Common\n");
 }
+OUTPUT:
+before fork
+My child's id is 104188
+I am parent having id 104187
+Common
+I am child having id 104188
+My parent's id is 104187
+Common
