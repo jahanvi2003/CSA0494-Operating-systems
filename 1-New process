@@ -7,13 +7,13 @@ pid_t p;
 printf("before fork\n");
 if(p==0)
 {
-printf("I am child having id %d\n");
-printf("My parent's id is %d\n");
+printf("I am child having id %d\n"get pid());
+printf("My parent's id is %d\n"get ppid());
 }
 else
 {
 printf("My child's id is %d\n",p);
-printf("I am parent having id %d\n");
+printf("I am parent having id %d\n"getpid());
 }
 printf("Common\n");
 }
